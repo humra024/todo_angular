@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';   //OnInit
 import {CommonModule} from '@angular/common';
 import { Todo } from '../../Todo';
+import {TodoItemComponent} from '../todo-item/todo-item.component'
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TodoItemComponent],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css'
 })
@@ -33,6 +34,11 @@ export class TodosComponent{  //implements OnInit
       
   // }
   
+  deleteTodo(todo:Todo){
+    console.log(todo)
+    const index=this.todos.indexOf(todo)
+    this.todos.splice(index,1)
+  }
 }
 
 
